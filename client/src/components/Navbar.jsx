@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { Badge } from "@mui/material";
+import React from 'react';
+import styled from 'styled-components';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Badge } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   height: 60px;
@@ -71,12 +72,16 @@ const Navbar = () => {
           <SearchContainer>
             <Input />
             <SearchIcon
-              style={{ color: "gray", fontSize: "16px", marginLeft: "5px" }}
+              style={{ color: 'gray', fontSize: '16px', marginLeft: '5px' }}
             />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>TAHAWY</Logo>
+          <Logo>
+            <Link style={{ textDecoration: 'none', color: '#000' }} to="/">
+              TAHAWY
+            </Link>
+          </Logo>
         </Center>
         <Right>
           <MenuItem>Register</MenuItem>

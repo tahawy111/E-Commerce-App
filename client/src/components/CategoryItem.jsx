@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 const Container = styled.div`
   flex: 1;
   margin: 3px;
@@ -35,13 +36,17 @@ const Button = styled.button`
 `;
 
 const CategoryItem = ({ item }) => {
+  // const location = useLocation();
+  // const cat = location.pathname.split('/')[2];
   return (
     <Container>
-      <Image src={item.img} />
-      <Info>
-        <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+      <Link to={`/products/${item.cat}`}>
+        <Image src={item.img} />
+        <Info>
+          <Title>{item.title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };
