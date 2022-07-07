@@ -36,8 +36,6 @@ const Button = styled.button`
 `;
 
 const CategoryItem = ({ item }) => {
-  // const location = useLocation();
-  // const cat = location.pathname.split('/')[2];
   return (
     <Container>
       <Link to={`/products/${item.cat}`}>
