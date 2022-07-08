@@ -44,10 +44,11 @@ const Products = ({ sort, cat, filters }) => {
           )
         )
       );
+    console.log(products);
   }, [cat, products, filters]);
   return (
     <Container>
-      {popularProducts.map((item) => (
+      {filteredProducts.map((item) => (
         <Product item={item} />
       ))}
     </Container>
