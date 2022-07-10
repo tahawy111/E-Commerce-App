@@ -46,12 +46,14 @@ const ProductList = () => {
   const [sort, setSort] = useState('newest');
 
   const handleFilters = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setFilters({
       ...filters,
       [e.target.name]: value,
     });
   };
+  console.log(filters);
+  console.log(sort);
 
   return (
     <Container>
