@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { Badge } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Badge } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
@@ -64,6 +65,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
   return (
     <Container>
       <Wrapper>
@@ -72,13 +74,13 @@ const Navbar = () => {
           <SearchContainer>
             <Input />
             <SearchIcon
-              style={{ color: 'gray', fontSize: '16px', marginLeft: '5px' }}
+              style={{ color: "gray", fontSize: "16px", marginLeft: "5px" }}
             />
           </SearchContainer>
         </Left>
         <Center>
           <Logo>
-            <Link style={{ textDecoration: 'none', color: '#000' }} to="/">
+            <Link style={{ textDecoration: "none", color: "#000" }} to="/">
               TAHAWY
             </Link>
           </Logo>
@@ -87,7 +89,7 @@ const Navbar = () => {
           <MenuItem>Register</MenuItem>
           <MenuItem>Sign in</MenuItem>
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
           </MenuItem>

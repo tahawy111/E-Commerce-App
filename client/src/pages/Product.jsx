@@ -7,6 +7,8 @@ import Newsletter from "../components/Newsletter";
 import { useState } from "react";
 import { useEffect } from "react";
 import { publicRequest } from "./../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -135,9 +137,10 @@ const Product = () => {
   const [product, setProduct] = useState({});
   const [colors, setColors] = useState([]);
   const [sizes, setSizes] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -145,6 +148,8 @@ const Product = () => {
         setProduct(data);
         setColors(data.color);
         setSizes(data.size);
+        setColor(data.color[0]);
+        setSize(data.size[0]);
       } catch (err) {}
     };
 
@@ -159,7 +164,16 @@ const Product = () => {
     }
   };
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    dispatch(
+      addProduct({
+        ...product,
+        quantity,
+        color,
+        size,
+      })
+    );
+  };
 
   return (
     <Container>
