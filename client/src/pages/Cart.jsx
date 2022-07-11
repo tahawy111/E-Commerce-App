@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { Add, Remove } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -83,6 +84,12 @@ const ProductColor = styled.div`
   height: 20px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
+  border: ${(props) =>
+    props.color === "paige"
+      ? "3px solid black"
+      : props.color === "white"
+      ? "3px solid black"
+      : "none"};
 `;
 
 const ProductSize = styled.span``;
@@ -148,6 +155,7 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <Container>
       <Navbar />
@@ -164,63 +172,40 @@ const Cart = () => {
         </Top>
         <Botton>
           <Info>
-            <Product>
-              <ProductsDetails>
-                <Image src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/passerby-wears-a-red-floral-print-dress-a-large-belt-a-news-photo-1651864568.jpg?crop=0.670xw:1.00xh;0.167xw,0&resize=640:*"></Image>
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> beuty Islamic Dress
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 5455489285200
-                  </ProductId>
-                  <ProductColor color="red" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductsDetails>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Remove />
-                  <ProductAmount>1</ProductAmount>
-                  <Add />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetails>
-            </Product>
+            {cart.products.map((product) => (
+              <Product key={product._id}>
+                <ProductsDetails>
+                  <Image src={product.img}></Image>
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b> {product._id}
+                    </ProductId>
+                    <ProductColor color={product.color} />
+                    <ProductSize>
+                      <b>Size:</b> {product.size.toUpperCase()}
+                    </ProductSize>
+                  </Details>
+                </ProductsDetails>
+                <PriceDetails>
+                  <ProductAmountContainer>
+                    <Remove />
+                    <ProductAmount>1</ProductAmount>
+                    <Add />
+                  </ProductAmountContainer>
+                  <ProductPrice>$ {product.price}</ProductPrice>
+                </PriceDetails>
+              </Product>
+            ))}
             <Hr />
-            <Product>
-              <ProductsDetails>
-                <Image src="https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png"></Image>
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> Beige Woamen Jacket
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 645462285200
-                  </ProductId>
-                  <ProductColor color="beige" />
-                  <ProductSize>
-                    <b>Size:</b> 45
-                  </ProductSize>
-                </Details>
-              </ProductsDetails>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Remove />
-                  <ProductAmount>2</ProductAmount>
-                  <Add />
-                </ProductAmountContainer>
-                <ProductPrice>$ 50</ProductPrice>
-              </PriceDetails>
-            </Product>
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -232,7 +217,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>

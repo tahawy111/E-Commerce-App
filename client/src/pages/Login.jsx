@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -64,14 +65,25 @@ const Link = styled.a`
 `;
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = () => {};
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
-          <Input placeholder="Username" type="text" />
-          <Input placeholder="Password" type="password" />
-          <Button>LOGIN</Button>
+          <Input
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            type="text"
+          />
+          <Input
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            type="password"
+          />
+          <Button onClick={handleLogin}>LOGIN</Button>
         </Form>
 
         <Link>DO NOT YOU REMEMBER THE PASSWORD? </Link>
