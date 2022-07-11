@@ -86,7 +86,7 @@ const ProductList = () => {
               Color
             </Option>
             {colors.map((color) => (
-              <Option>{color.toUpperCase()}</Option>
+              <Option>{color}</Option>
             ))}
           </Select>
           <Select name="size" onChange={handleFilters}>

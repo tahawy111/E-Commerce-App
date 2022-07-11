@@ -1,0 +1,217 @@
+[{
+  "_id": {
+    "$oid": "62cb177c43c0a54c75457343"
+  },
+  "title": "red t-shirt",
+  "desc": "this is realy good",
+  "img": "https://i.ibb.co/X2myqHd/4-48720-kids-tshirt-png-image-transparent-red-t-shirts-removebg-preview.png",
+  "categories": [
+    "t-shirt",
+    "men"
+  ],
+  "size": [
+    "XS"
+  ],
+  "color": [
+    "red"
+  ],
+  "price": 20,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657476988752"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657551983995"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cb1a0343c0a54c7545734c"
+  },
+  "title": "summer women shirt",
+  "desc": "this is realy good",
+  "img": "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+  "categories": [
+    "shirt",
+    "women"
+  ],
+  "size": "x",
+  "color": "paige",
+  "price": 25,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657477635218"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657477635218"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cb1dcb43c0a54c75457353"
+  },
+  "title": "white women bag",
+  "desc": "this is realy good",
+  "img": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+  "categories": [
+    "bag",
+    "women"
+  ],
+  "size": "x",
+  "color": "white",
+  "price": 15,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657478603760"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657478603760"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cb1e6343c0a54c75457355"
+  },
+  "title": "gray hat",
+  "desc": "this is realy good",
+  "img": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+  "categories": [
+    "hat",
+    "women",
+    "men"
+  ],
+  "size": "xx",
+  "color": "gray",
+  "price": 10,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657478755980"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657505252550"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cb1fa343c0a54c75457357"
+  },
+  "title": "oily skin jacket",
+  "desc": "this is realy good",
+  "img": "https://www.thejacketnation.com/image/catalog/Moffit%20Distressed%20Dark%20Green%20Leather%20Jacket%20Mens/Real_Leather_Casual_Jacket__76197_zoom.jpg",
+  "categories": [
+    "jacket",
+    "men"
+  ],
+  "size": "xx",
+  "color": "oily",
+  "price": 10,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657479075009"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657479075009"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cb201e43c0a54c75457359"
+  },
+  "title": "paige women jacket",
+  "desc": "this is realy good",
+  "img": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+  "categories": [
+    "jacket",
+    "women"
+  ],
+  "size": "x",
+  "color": "paige",
+  "price": 20,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657479198396"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657479198396"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cc42268e0ea24804e99770"
+  },
+  "title": "summer shirt",
+  "desc": "this is realy good",
+  "img": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+  "categories": [
+    "shirt",
+    "men"
+  ],
+  "size": [
+    "XS"
+  ],
+  "color": [
+    "red",
+    "blue"
+  ],
+  "price": 50,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657553446326"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657553446326"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cc49438e0ea24804e997b9"
+  },
+  "title": "test",
+  "desc": "test",
+  "img": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+  "categories": [
+    "test",
+    "test"
+  ],
+  "size": [
+    "XS",
+    "M"
+  ],
+  "color": [
+    "red",
+    "blue"
+  ],
+  "price": 50,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657555267588"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657555267588"
+    }
+  },
+  "__v": 0
+}]

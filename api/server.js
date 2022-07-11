@@ -1,15 +1,15 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import index from './routes/index.js';
-import cors from 'cors';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import index from "./routes/index.js";
+import cors from "cors";
 const app = express();
 dotenv.config();
 
 // Database connection
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => console.log('DB Connected'))
+  .then(() => console.log("DB Connected"))
   .catch((err) => console.log(err));
 app.use(cors());
 
