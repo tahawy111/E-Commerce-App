@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import Announcement from '../components/Announcement';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import Newsletter from '../components/Newsletter';
-import Products from '../components/Products';
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
+import Products from "../components/Products";
+import axios from "axios";
 
 const Container = styled.div``;
 const Title = styled.h1`
@@ -41,9 +42,9 @@ const Option = styled.option``;
 
 const ProductList = () => {
   const location = useLocation();
-  const cat = location.pathname.split('/')[2];
+  const cat = location.pathname.split("/")[2];
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState('newest');
+  const [sort, setSort] = useState("newest");
 
   const handleFilters = (e) => {
     const value = e.target.value.toLowerCase();
@@ -52,14 +53,31 @@ const ProductList = () => {
       [e.target.name]: value,
     });
   };
-  console.log(filters);
-  console.log(sort);
+
+  const [colors, setColors] = useState([]);
+
+  useEffect(() => {
+    const fetchColors = async () => {
+      const array = [];
+      const { data } = await axios.get(
+        cat
+          ? `http://localhost:5000/api/products?category=${cat}`
+          : "http://localhost:5000/api/products"
+      );
+
+      data.forEach((item) => {
+        array.push(item.color);
+      });
+      setColors(array);
+    };
+    fetchColors();
+  }, [cat, filters, sort]);
 
   return (
     <Container>
       <Navbar />
       <Announcement />
-      <Title>Dresses</Title>
+      <Title>{cat.toUpperCase()}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
@@ -67,12 +85,9 @@ const ProductList = () => {
             <Option disabled selected>
               Color
             </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Green</Option>
+            {colors.map((color) => (
+              <Option>{color.toUpperCase()}</Option>
+            ))}
           </Select>
           <Select name="size" onChange={handleFilters}>
             <Option disabled selected>
